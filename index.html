@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+	    font-family: "Calibri Light", sans-serif;
+            text-align: center;
+        }
+        h1 {
+	    font-family: "Comic Sans MS", cursive, sans-serif;
+            font-size: 40px;
+        }
+ 	h2 {
+            font-size: 20px;
+        }
+        .mensaje {
+            font-size: 18px;
+            max-width: 80%;
+            margin: auto;
+            line-height: 1.5;
+        }
+        .imagen-izquierda {
+            position: absolute;
+            top: 75px;
+            left: 20px;
+            width: 100px;
+	    height: auto;
+        }
+        .boton {
+            background-color: purple;
+            color: black;
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            margin-top: 20px;
+        }
+        .carga {
+            width: 300px;
+            height: 30px;
+            border: 2px solid white;
+            margin: auto;
+            position: relative;
+        }
+        .barra {
+            height: 100%;
+            width: 0%;
+            background-color: purple;
+            position: absolute;
+        }
+        .oculto {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>FELICES 20 MI AMOR!!</h1>
+    <img src="C:\Users\ingau\OneDrive\ING-CONTABILIDAD\Escritorio\CALB\imagen_1.png" class="imagen-izquierda" alt="Imagen decorativa">
+    
+    <p class="mensaje">
+        En este día tan especial celebrando un añito más de vida, quiero que sepas lo mucho 	que te adoro, lo mucho que me llena verte feliz sé que es algo que añoras, que 	quizá son los pequeños detalles de la vida los que le quedan a uno para siempre
+        Quiero que lo disfrutes un montón, quiero verte sonreír hasta el cansancio y 	disfrutar cada segundo
+        Recuerda que la vida no se trata de estrés, ni cosas malas, se trata de navegar 	entre todas las dificultades que aparecen en el camino y siempre superarlas eres 	una mujer con un gran valor, que si te propones todo lo cumples y sé que serás 	grande tus pensamientos cada vez se acomodan más para ir centrada hacia tus 	metas y espero llegar a ver esa mujer gigante y próspera. 
+	<br><br>
+        Pero bueno, sin más... 
+	<br><br><br>
+	FELIZ CUMPLEAÑOS MI VIDA......</b></p>
+
+    <br><br><br>
+    
+    <button class="boton" onclick="iniciarCarga()">Cargar Regalo Virtual</button>
+
+    <div id="cargaVirtual" class="oculto">
+        <h1>CARGANDO REGALO VIRTUAL</h1>
+        <br><br>
+        <img src="C:\Users\ingau\OneDrive\ING-CONTABILIDAD\Escritorio\CALB\imagen_	2.png" alt="Regalo" style="width: 300 px;">
+        <br><br><br>
+        <p>cargando...</p>
+        <div class="carga">
+            <div class="barra" id="barraProgreso"></div>
+        </div>
+    </div>
+
+    <div id="sorpresaFinal" class="oculto">
+        <h1>UNO DE TUS SUEÑOS TE ESPERA</h1>
+        <br><br>
+        <img src="C:\Users\ingau\OneDrive\ING-CONTABILIDAD\Escritorio\CALB\imagen_	3.png" alt="Sorpresa" style="width: 300px;">
+	<br><br>
+	<h2>DISFRUTALO UN MONTON!!</h2>
+    </div>
+
+    <script>
+        function iniciarCarga() {
+            document.querySelector("h1").style.display = "none";
+            document.querySelector(".mensaje").style.display = "none";
+            document.querySelector(".boton").style.display = "none";
+            document.getElementById("cargaVirtual").classList.remove("oculto");
+
+            let barra = document.getElementById("barraProgreso");
+            let ancho = 0;
+            let intervalo = setInterval(() => {
+                if (ancho >= 100) {
+                    clearInterval(intervalo);
+                    document.getElementById("cargaVirtual").style.display = "none";
+                    document.getElementById("sorpresaFinal").classList.remove("oculto");
+                } else {
+                    ancho++;
+                    barra.style.width = ancho + "%";
+                }
+            }, 200);
+        }
+    </script>
+
+</body>
+</html>
